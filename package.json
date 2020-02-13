@@ -1,0 +1,27 @@
+{
+  "name": "frontend",
+  "version": "1.0.0",
+  "description": "Manos Bondadosas frontend.",
+  "main": "index.js",
+  "dependencies": {
+    "npm": "^6.13.7",
+    "vue": "^2.6.11"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hndoss/manos-bondadosas.git"
+  },
+  "keywords": [
+    "ong"
+  ],
+  "author": "Hector Rosales",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hndoss/manos-bondadosas/issues"
+  },
+  "homepage": "https://github.com/hndoss/manos-bondadosas#readme"
+}
