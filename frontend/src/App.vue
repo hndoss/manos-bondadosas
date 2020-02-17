@@ -8,7 +8,7 @@
       <router-view />
     </v-content>
 
-    <footerBar/>
+    <footerBar />
   </v-app>
 </template>
 

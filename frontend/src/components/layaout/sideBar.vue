@@ -22,7 +22,9 @@
         </v-list-item-icon>
 
         <v-list-item-content>
-          <v-list-item-title>{{ item.title }}</v-list-item-title>
+          <v-list-item-title>
+            <router-link tag="li" :to="{ path: item.link }">{{ item.title }}</router-link>
+          </v-list-item-title>
         </v-list-item-content>
       </v-list-item>
     </v-list>
@@ -31,25 +33,26 @@
 
 <script>
 export default {
-  name: 'sideBar',
+  name: "sideBar",
   data() {
     return {
       drawer: true,
       items: [
-        { title: "Dashboard", icon: "mdi-view-dashboard" },
-        { title: "People", icon: "mdi-image" },
+        { title: "Dashboard", icon: "mdi-view-dashboard", link: "/" },
+        { title: "Collaborators", icon: "mdi-image", link: "collaborators" },
+        { title: "Benefited", icon: "mdi-image", link: "/benefited" },
         { title: "Events", icon: "mdi-help-box" },
-        { title: "Admin", icon: "mdi-help-box" },
-        { title: "About", icon: "mdi-help-box" }
+        { title: "Admin", icon: "mdi-help-box", link: "/admin" },
+        { title: "About", icon: "mdi-help-box", link: "/about" }
       ],
       right: false,
       miniVariant: false,
       expandOnHover: false,
       background: false,
-      bottom: true,
+      bottom: false,
       clipped: true,
       height: "100%",
-      width: "10%"
+      width: "13%"
     };
   },
   computed: {
@@ -61,6 +64,3 @@ export default {
   }
 };
 </script>
-
-<style scoped>
-</style>
