@@ -39,7 +39,7 @@ export default {
       drawer: true,
       items: [
         { title: "Dashboard", icon: "mdi-view-dashboard", link: "/" },
-        { title: "Collaborators", icon: "mdi-image", link: "collaborators" },
+        { title: "Collaborators", icon: "mdi-image", link: "/collaborators" },
         { title: "Benefited", icon: "mdi-image", link: "/benefited" },
         { title: "Events", icon: "mdi-help-box" },
         { title: "Admin", icon: "mdi-help-box", link: "/admin" },
