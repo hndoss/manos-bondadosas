@@ -4,7 +4,8 @@ import landing from '@/pages/landing';
 import signIn from '@/pages/signin';
 import about from '@/pages/about';
 import collaborators from '@/pages/collaborators';
-import registerCollaborator from '@/pages/collaborators/registerCollaborator'
+import registerCollaborator from '@/pages/collaborators/registerCollaborator';
+import viewCollaboratorDetails from '@/pages/collaborators/viewCollaboratorDetails';
 import benefited from '@/pages/benefited';
 
 
@@ -32,6 +33,10 @@ const router = new VueRouter({
         {
             path: '/collaborators/add',
             component: registerCollaborator
+        },
+        {
+            path: '/collaborators/:id',
+            component: viewCollaboratorDetails
         },
         {
             path: '/benefited',
