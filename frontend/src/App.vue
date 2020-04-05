@@ -29,3 +29,13 @@ export default {
   data: () => ({})
 };
 </script>
+
+
+
+// <container>
+// <side-bar />
+// <content>
+// <router-view />
+// </content>
+// </container>
+// container debe tener una clase que tenga la propiedad display:flex
