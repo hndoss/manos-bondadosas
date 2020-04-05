@@ -1,12 +1,5 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import landing from '@/pages/landing';
-import signIn from '@/pages/signin';
-import collaborators from '@/pages/collaborators';
-import registerCollaborator from '@/pages/collaborators/registerCollaborator';
-import viewCollaboratorDetails from '@/pages/collaborators/viewCollaboratorDetails';
-import benefited from '@/pages/benefited';
-
 
 Vue.use(VueRouter)
 
@@ -15,27 +8,27 @@ const router = new VueRouter({
     routes: [
         {
             path: '/',
-            component: landing
+            component: () => import('@/pages/landing')
         },
         {
             path: '/signin',
-            component: signIn
+            component: () => import('@/pages/signin')
         },
         {
             path: '/collaborators',
-            component: collaborators
+            component: () => import('@/pages/collaborators')
         },
         {
             path: '/collaborators/add',
-            component: registerCollaborator
+            component: () => import('@/pages/collaborators/registerCollaborator')
         },
         {
             path: '/collaborators/:id',
-            component: viewCollaboratorDetails
+            component: () => import('@/pages/collaborators/viewCollaboratorDetails')
         },
         {
             path: '/benefited',
-            component: benefited
+            component: () => import('@/pages/benefited')
         }
     ]
 })

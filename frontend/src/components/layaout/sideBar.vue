@@ -9,7 +9,6 @@
     :bottom="bottom"
     :clipped="clipped"
     :height="height"
-    :width="width"
     absolute
     dark
   >
@@ -50,8 +49,7 @@ export default {
       background: false,
       bottom: false,
       clipped: true,
-      height: "100%",
-      width: "13%"
+      height: "100%"
     };
   },
   computed: {

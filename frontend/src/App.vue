@@ -1,10 +1,9 @@
 <template>
   <v-app>
-    <sideBar />
-
     <appBar />
+    <sideBar xs3 sm4 md2 lg4 />
 
-    <v-content>
+    <v-content xs9 sm8 md2 lg8>
       <router-view />
     </v-content>
 
