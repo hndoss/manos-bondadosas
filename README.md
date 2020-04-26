@@ -1,4 +1,4 @@
-# MySql Database
+## MySql Database
 
 ```
 docker run -d \
@@ -11,3 +11,5 @@ docker run -d \
     -e MYSQL_PASSWORD="asd.123" \
     mysql:latest
 ```
+
+DB_CONNECTION=Data Source=JIMMYRAMOS\SQLEXPRESS;Initial Catalog=formula;Integrated Security=True;
