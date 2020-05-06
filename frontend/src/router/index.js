@@ -9,26 +9,6 @@ const router = new VueRouter({
         {
             path: '/',
             component: () => import('@/components/layaout/mainSlot')
-        },
-        {
-            path: '/signin',
-            component: () => import('@/pages/signin')
-        },
-        {
-            path: '/collaborators',
-            component: () => import('@/pages/collaborators')
-        },
-        {
-            path: '/collaborators/add',
-            component: () => import('@/pages/collaborators/registerCollaborator')
-        },
-        {
-            path: '/collaborators/:id',
-            component: () => import('@/pages/collaborators/viewCollaboratorDetails')
-        },
-        {
-            path: '/benefited',
-            component: () => import('@/pages/benefited')
         }
     ]
 })
