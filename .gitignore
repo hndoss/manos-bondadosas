@@ -42,3 +42,4 @@ msbuild.wrn
 
 # Python
 __pycache__/
+crm/
