@@ -1,31 +1,15 @@
 <template>
-  <v-app>
-    <sideBar />
-
-    <appBar />
-
-    <v-content>
-      <router-view />
-    </v-content>
-
-    <footerBar />
-  </v-app>
+  <div>
+    <router-view />
+    <!-- <loader /> -->
+  </div>
 </template>
 
 <script>
-import sideBar from "@/components/layaout/sideBar";
-import appBar from "@/components/layaout/appBar";
-import footerBar from "@/components/layaout/footerBar";
+// import Loader from '@/components/loader'
 
 export default {
-  name: "App",
-
-  components: {
-    sideBar,
-    appBar,
-    footerBar
-  },
-
-  data: () => ({})
-};
+  name: 'App',
+  // components: { Loader },
+}
 </script>
