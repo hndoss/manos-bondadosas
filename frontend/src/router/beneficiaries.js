@@ -1,11 +1,11 @@
-import ListCollaborators from "@/pages/collaborators/listCollaborators"
+import ListBeneficiaries from "@/pages/beneficiaries/listBeneficiaries"
 // import createCollaborator from "@/pages/collaborators/createCollaborator"
 
 export default [
   {
-    name: 'ListCollaborator',
-    path: '/collaborators/',
-    component: ListCollaborators,
+    name: 'ListBeneficiaries',
+    path: '/beneficiaries/',
+    component: ListBeneficiaries,
     meta: {
       requiresAuth: true
     }

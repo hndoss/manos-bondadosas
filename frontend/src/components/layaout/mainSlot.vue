@@ -138,13 +138,13 @@ export default {
             {
               label: "Collaborators",
               icon: "fas fa-users",
-              route: "DocumentList",
+              route: "ListCollaborator",
               role: "ROLE_DOCUMENT_LIST"
             },
             {
-              label: "Benefited",
+              label: "Beneficiaries",
               icon: "fas fa-users",
-              route: "TemplateList",
+              route: "ListBeneficiaries",
               role: "ROLE_TEMPLATE_LIST"
             }
           ],
@@ -192,24 +192,30 @@ export default {
             }
           ]
         },
-        // {
-        //   label: "contacts",
-        //   icon: "contacts",
-        //   children: [
-        //     {
-        //       label: "contacts",
-        //       icon: "local_phone",
-        //       route: "ContactList",
-        //       role: "ROLE_CONTACT_LIST"
-        //     },
-        //     {
-        //       label: "address",
-        //       icon: "my_location",
-        //       route: "AddressList",
-        //       role: "ROLE_ADDRESS_LIST"
-        //     }
-        //   ]
-        // },
+        {
+          label: "Places",
+          icon: "fas fa-building",
+          children: [
+            {
+              label: "Regions",
+              icon: "fas fa-map-marked",
+              route: "fas fa-building",
+              role: "ROLE_CONTACT_LIST"
+            },
+            {
+              label: "Locals",
+              icon: "fas fa-building",
+              route: "AddressList",
+              role: "ROLE_ADDRESS_LIST"
+            }
+          ]
+        },
+        {
+          label: "Reports",
+          icon: "fas fa-chart-pie",
+          route: "reports",
+          role: "ROLE_USER_DASHBOARD"
+        }
         // {
         //   label: "product",
         //   icon: "store",
@@ -417,12 +423,12 @@ export default {
       return "Admin";
     }
   },
-  // watch: {
-  //   $route(to, from) {
-  //     this.activeRoute = this.routeName(to.name)
-  //     this.initActiveMenuItem()
-  //   }
-  // },
+  watch: {
+    $route(to, from) {
+      this.activeRoute = this.routeName(to.name)
+      this.initActiveMenuItem()
+    }
+  },
   created() {
     this.activeRoute = this.routeName(this.$route.name);
   },
@@ -468,7 +474,6 @@ export default {
       }
     },
     isGranted(item) {
-      console.log(item);
       return true;
     },
     isGrantedItem(item) {
