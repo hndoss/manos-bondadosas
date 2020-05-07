@@ -470,12 +470,10 @@ export default {
     },
     listItemClick(item) {
       if (item.route) {
-        console.log("this")
         this.$router.push({ name: item.route });
       }
     },
     isGranted(item) {
-      console.log(item);
       return true;
     },
     isGrantedItem(item) {

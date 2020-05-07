@@ -30,12 +30,12 @@ const Service = {
 
     // commit(`${namespace}_SET_ERROR`, null)
 
-    // return axios
-    //   .get(`${VUE_APP_API_URL}/${url}`)
-    //   .then(response => {
-    //     console.log(response.data)
-    //     return response.data
-    //   })
+    return axios
+      .get(`${VUE_APP_API_URL}/${url}`)
+      .then(response => {
+        console.log(response.data)
+        return response.data
+      })
       // .then(data => {
       //   commit(`${namespace}_SET_ITEMS`, data['hydra:member'])
 
@@ -44,15 +44,15 @@ const Service = {
       // .catch(e => {
       //   commit(`${namespace}_SET_ERROR`, e.message)
       // })
-    return [
-      {
-        id: 1,
-        first_name: "Alex",
-        last_name: "Batres",
-        age: "20",
-        email: "alex.batres@gmail.com"
-      }
-    ]
+    // return [
+    //   {
+    //     id: 1,
+    //     first_name: "Alex",
+    //     last_name: "Batres",
+    //     age: "20",
+    //     email: "alex.batres@gmail.com"
+    //   }
+    // ]
   }
 }
 

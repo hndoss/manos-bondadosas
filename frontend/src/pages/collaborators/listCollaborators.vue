@@ -1,5 +1,5 @@
 <template>
-  <Table tittle="Collaborators" :headers="headers" :entities="collaborators" />
+  <Table tittle="Collaborators" :headers="headers" :entities="this.collaborators" />
 </template>
 
 <script>
@@ -23,17 +23,16 @@ export default {
         { text: 'Age', value: 'age' },
         { text: 'Email', value: 'email' },
       ],
+      collaborators: []
     }
   },
-  computed: {
-    collaborators(){
-      return this.getCollaborators();
-    }
+  beforeMount() {
+    this.getCollaborators()
+      .then(data => this.collaborators = data)    
   },
   methods: {
     getCollaborators(){
       return Service.getItems("collaborators");
-
     }
   }
 }
