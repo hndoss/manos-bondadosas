@@ -64,7 +64,8 @@ INSTALLED_APPS = [
     'corsheaders',
     'rest_framework',
     'collaborators',
-    'beneficiaries'
+    'beneficiaries',
+    'projects'
 ]
 
 MIDDLEWARE = [

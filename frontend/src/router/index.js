@@ -2,6 +2,7 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import collaboratorRoutes from "./collaborator"
 import beneficiariesRoutes from "./beneficiaries"
+import projects from "./projects"
 
 Vue.use(VueRouter)
 
@@ -13,7 +14,8 @@ const router = new VueRouter({
             component: () => import('@/components/layaout/mainSlot'),
             children: [
                 ...collaboratorRoutes,
-                ...beneficiariesRoutes
+                ...beneficiariesRoutes,
+                ...projects,
             ]
         }
     ]

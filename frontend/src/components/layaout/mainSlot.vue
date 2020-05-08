@@ -153,7 +153,7 @@ export default {
         {
           label: "Projects",
           icon: "fas fa-hammer",
-          route: "CompanyList",
+          route: "ListProjects",
           role: "ROLE_COMPANY_LIST"
         },
         {

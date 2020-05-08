@@ -33,7 +33,6 @@ const Service = {
     return axios
       .get(`${VUE_APP_API_URL}/${url}`)
       .then(response => {
-        console.log(response.data)
         return response.data
       })
       // .then(data => {
