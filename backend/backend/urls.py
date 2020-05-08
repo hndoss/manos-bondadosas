@@ -18,7 +18,8 @@ from django.conf.urls import url, include
 
 urlpatterns = [
     url('admin/', admin.site.urls),
-    url('api/v1/collaborators/', include('collaborators.urls'))
+    url('api/v1/collaborators/', include('collaborators.urls')),
+    url('api/v1/beneficiaries/', include('beneficiaries.urls'))
 ]
 
 admin.site.site_header = "Manos Bondadoas"
