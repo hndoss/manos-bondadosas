@@ -8,8 +8,10 @@ class Project(models.Model):
     # ]
 
     id = models.AutoField(primary_key=True)
-    name = models.CharField(blank=False, max_length=30)
-    description = models.CharField(blank=False, max_length=30)
+    name = models.CharField(blank=False, null=True, max_length=30)
+    description = models.CharField(blank=False, null=True, max_length=30)
+    
+    collaborators = models.ManyToManyField('collaborators.Collaborator', blank=True)
     # state = models.IntegerField(blank=False)
 
     def __str__(self):

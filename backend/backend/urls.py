@@ -23,6 +23,6 @@ urlpatterns = [
     url('api/v1/projects/', include('projects.urls'))
 ]
 
-admin.site.site_header = "Manos Bondadoas"
+admin.site.site_header = "Manos Bondadosas"
 admin.site.site_title = "Manos Bondadosas Admin"
 admin.site.index_title = "Welcome to Manos Bondadosas"

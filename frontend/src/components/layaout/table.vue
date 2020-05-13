@@ -11,7 +11,7 @@
           hide-details
         ></v-text-field>
       </v-card-title>
-      <v-data-table :headers="headers" :items="entities" :search="search"></v-data-table>
+      <v-data-table :headers="headers" :items="entities" :search="search" @click:row="handleClick"></v-data-table>
     </v-card>
   </div>
 </template>
@@ -19,16 +19,17 @@
 <script lang="ts">
 export default {
   name: "Table",
-  props: [
-      'tittle',
-      'headers',
-      'entities'
-  ],
+  props: ["tittle", "headers", "entities"],
   data() {
-      return {
-          search: '',
-      }
-  }
+    return {
+      search: "",
+    };
+  },
+  methods: {
+    handleClick(row) {
+      this.$emit("click", row);
+    }
+  },
 };
 </script>
 
