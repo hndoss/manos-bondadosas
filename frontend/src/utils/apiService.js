@@ -21,37 +21,11 @@ import { VUE_APP_API_URL } from "@/config/variables"
 
 const Service = {
   getItems(url, query) {
-
-    // if (query) {
-    //   url += `?${Object.keys(query)
-    //     .map(key => `${key}=${query[key]}`)
-    //     .join('&')}`
-    // }
-
-    // commit(`${namespace}_SET_ERROR`, null)
-
     return axios
       .get(`${VUE_APP_API_URL}/${url}`)
       .then(response => {
         return response.data
       })
-      // .then(data => {
-      //   commit(`${namespace}_SET_ITEMS`, data['hydra:member'])
-
-      //   return data['hydra:member']
-      // })
-      // .catch(e => {
-      //   commit(`${namespace}_SET_ERROR`, e.message)
-      // })
-    // return [
-    //   {
-    //     id: 1,
-    //     first_name: "Alex",
-    //     last_name: "Batres",
-    //     age: "20",
-    //     email: "alex.batres@gmail.com"
-    //   }
-    // ]
   }
 }
 

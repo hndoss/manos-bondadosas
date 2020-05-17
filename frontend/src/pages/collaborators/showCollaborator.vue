@@ -6,15 +6,28 @@
       <v-tab>Events</v-tab>
 
       <v-tab-item>
-        <h1>Id: {{id}}</h1>
+        <v-container class="grey lighten-5">
+          <v-row>
+            <v-col md="2">
+              <v-img
+                src="@/assets/contact.png"
+                aspect-ratio="1"
+                class="grey lighten-2"
+              ></v-img>
+            </v-col>
+            <v-col>
+              ID: {{ collaborator.id }} <br>
+              First Name: {{ collaborator.first_name }} <br>
+              Last Name: {{ collaborator.last_name }} <br>
+            </v-col>
+          </v-row>
+        </v-container>
       </v-tab-item>
 
       <v-tab-item>
-        <h1>project: {{id}}</h1>
       </v-tab-item>
 
       <v-tab-item>
-        <h1>events: {{id}}</h1>
       </v-tab-item>
     </v-tabs>
   </div>
@@ -26,36 +39,25 @@
 </template>
 
 <script>
+import Service from "@/utils/apiService"
+
 export default {
   name: "ShowCollaborator",
   data() {
     return {
       historyKey: 1,
-      id: this.$route.params.id
-      // fields: [
-      //   {
-      //     property: 'value'
-      //   },
-      //   {
-      //     property: 'contactType',
-      //     path: 'contactType.name'
-      //   },
-      //   {
-      //     property: 'clients',
-      //     type: 'collection',
-      //     link: {
-      //       route: 'ClientShow'
-      //     }
-      //   },
-      //   {
-      //     property: 'companies',
-      //     type: 'collection',
-      //     link: {
-      //       route: 'CompanyShow'
-      //     }
-      //   }
-      // ]
+      collaborator: { }
     }
+  },
+  beforeMount() {
+    this.getCollaborator()
+      .then(data => this.collaborator = data)    
+  },
+  methods: {
+    getCollaborator(){
+      let id = this.$route.params.id
+      return Service.getItems(`collaborators/${id}`);
+    },
   }
 }
 </script>
