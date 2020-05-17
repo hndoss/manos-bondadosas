@@ -1,5 +1,5 @@
 <template>
-  <Table tittle="Projects" :headers="headers" :entities="projects" />
+  <Table tittle="Projects" :headers="headers" :entities="projects" @click="viewProjectDetails" />
 </template>
 
 <script>
@@ -32,7 +32,14 @@ export default {
   methods: {
     getProjects(){
       return Service.getItems("projects");
-    }
+    },
+    viewProjectDetails(project){
+      this.$router.push(
+        { 
+          name: "ShowProject", 
+          params: { id: project.id } 
+        }
+    )}
   }
 }
 </script>

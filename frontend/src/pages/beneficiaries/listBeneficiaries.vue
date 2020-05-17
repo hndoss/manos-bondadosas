@@ -1,5 +1,10 @@
 <template>
-  <Table tittle="Beneficiaries" :headers="headers" :entities="beneficiaries" />
+  <Table
+    tittle="Beneficiaries"
+    :headers="headers"
+    :entities="beneficiaries"
+    @click="viewBeneficiaryDetails"
+  />
 </template>
 
 <script>
@@ -34,7 +39,14 @@ export default {
   methods: {
     getBeneficiaries(){
       return Service.getItems("beneficiaries");
-    }
+    },
+    viewBeneficiaryDetails(beneficiary){
+      this.$router.push(
+        { 
+          name: "ShowBeneficiary", 
+          params: { id: beneficiary.id } 
+        }
+    )}
   }
 }
 </script>
