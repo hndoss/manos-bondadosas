@@ -11,7 +11,7 @@ class Collaborator(models.Model):
     first_name = models.CharField(blank=False, max_length=30)
     last_name = models.CharField(blank=False, max_length=30)
     age = models.IntegerField(blank=False)
-    sex = models.CharField(blank=False, max_length=1, choices=sex_options)
+    sex = models.CharField('sex', blank=False, max_length=1, choices=sex_options)
     email = models.EmailField(blank=False, max_length=254)
 
     def __str__(self):

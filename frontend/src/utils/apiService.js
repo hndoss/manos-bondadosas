@@ -3,63 +3,30 @@ import axios from 'axios'
 
 import { VUE_APP_API_URL } from "@/config/variables"
 
-// export const getItem = ({ commit }, namespace, id) => {
-//   commit(`${namespace}_SET_ERROR`, null)
-
-//   return axios
-//     .get(`${API_HOST}/${pluralize(namespace.toLowerCase())}/${id}`)
-//     .then(response => response.data)
-//     .then(data => {
-//       commit(`${namespace}_SET_ITEM`, data)
-
-//       return data
-//     })
-//     .catch(e => {
-//       commit(`${namespace}_SET_ERROR`, e.message)
-//     })
-// }
-
 const Service = {
-  getItems(url, query) {
+  get(url, query) {
+    if (query)
+      return axios
+        .get(`${VUE_APP_API_URL}/${url}?${query}`)
+        .then(response => {
+          return response.data
+        })
+    else
+      return axios
+        .get(`${VUE_APP_API_URL}/${url}`)
+        .then(response => {
+          return response.data
+        })
+  },
+  post(url, object) {
+    console.log(`${VUE_APP_API_URL}/${url}`, object)
     return axios
-      .get(`${VUE_APP_API_URL}/${url}`)
-      .then(response => {
-        return response.data
-      })
+      .post(`${VUE_APP_API_URL}/${url}`, object)
+      .then(response => response.data)
   }
 }
 
 export default Service
-
-
-
-// export const create = ({ commit, state }, namespace) => {
-//   commit(`${namespace}_SET_ERROR`, null)
-
-//   return axios
-//     .post(`${API_HOST}/${pluralize(namespace.toLowerCase())}`, state.item)
-//     .then(response => response.data)
-//     .catch(e => {
-//       const { data } = e.response
-
-//       if (data.violations) {
-//         const errors = {}
-
-//         data.violations.map(violation => {
-//           Object.assign(errors, { [violation.propertyPath]: violation.message })
-//         })
-
-//         commit(`${namespace}_SET_ERRORS`, errors)
-//       }
-
-//       const error = data['hydra:description']
-//         ? data['hydra:description']
-//         : data.message
-//       commit(`${namespace}_SET_ERROR`, error)
-
-//       throw data
-//     })
-// }
 
 // export const update = ({ commit, state }, namespace) => {
 //   commit(`${namespace}_SET_ERROR`, null)
