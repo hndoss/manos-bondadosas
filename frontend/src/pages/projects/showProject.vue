@@ -3,6 +3,7 @@
     <v-tabs fixed-tabs background-color="cyan darken-4" dark>
       <v-tab>Information</v-tab>
       <v-tab>Collaborators</v-tab>
+      <v-tab>Tasks</v-tab>
       <v-tab>Report</v-tab>
 
       <v-tab-item>
@@ -67,7 +68,7 @@ export default {
   methods: {
     getProject(){
       let id = this.$route.params.id
-      return Service.getItems(`projects/${id}`);
+      return Service.get(`projects/${id}`);
     },
     viewCollaboratorDetails(collaborator){
       this.$router.push(

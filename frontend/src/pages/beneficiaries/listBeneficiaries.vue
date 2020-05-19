@@ -4,6 +4,7 @@
     :headers="headers"
     :entities="beneficiaries"
     @click="viewBeneficiaryDetails"
+    @addNewEntity="addBeneficiary"
   />
 </template>
 
@@ -38,7 +39,7 @@ export default {
   },
   methods: {
     getBeneficiaries(){
-      return Service.getItems("beneficiaries");
+      return Service.get("beneficiaries");
     },
     viewBeneficiaryDetails(beneficiary){
       this.$router.push(
@@ -46,7 +47,10 @@ export default {
           name: "ShowBeneficiary", 
           params: { id: beneficiary.id } 
         }
-    )}
+    )},
+    addBeneficiary(){
+      console.log("add new beneficiary")
+    }
   }
 }
 </script>

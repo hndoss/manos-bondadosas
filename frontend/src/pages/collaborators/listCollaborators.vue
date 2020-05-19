@@ -37,7 +37,7 @@ export default {
   },
   methods: {
     getCollaborators(){
-      return Service.getItems("collaborators");
+      return Service.get("collaborators");
     },
 
     viewCollaboratorDetails(collaborator){

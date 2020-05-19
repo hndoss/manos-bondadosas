@@ -66,7 +66,7 @@ export default {
   methods: {
     getBeneficiary(){
       let id = this.$route.params.id
-      return Service.getItems(`beneficiaries/${id}`);
+      return Service.get(`beneficiaries/${id}`);
     }
   }
 }

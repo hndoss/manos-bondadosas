@@ -1,5 +1,13 @@
 <template>
-  <Table tittle="Projects" :headers="headers" :entities="projects" @click="viewProjectDetails" />
+  <div>
+    <Table
+      tittle="Projects"
+      :headers="headers"
+      :entities="projects"
+      @click="viewProjectDetails"
+      @addNewEntity="addProject"
+    />
+  </div>
 </template>
 
 <script>
@@ -11,16 +19,16 @@ export default {
   components: { Table },
   data () {
     return {
-      search: '',
+      search: "",
       headers: [
         {
-          text: 'id',
-          align: 'start',
+          text: "id",
+          align: "start",
           filterable: true,
-          value: 'id',
+          value: "id",
         },
-        { text: 'Name', value: 'name' },
-        { text: 'Description', value: 'description' },
+        { text: "Name", value: "name" },
+        { text: "Description", value: "description" },
       ],
       projects: [],
     }
@@ -31,7 +39,7 @@ export default {
   },
   methods: {
     getProjects(){
-      return Service.getItems("projects");
+      return Service.get("projects");
     },
     viewProjectDetails(project){
       this.$router.push(
@@ -39,7 +47,12 @@ export default {
           name: "ShowProject", 
           params: { id: project.id } 
         }
-    )}
+    )},
+    addProject(){
+      this.$router.push({
+        name: "AddProject"
+      })
+    }
   }
 }
 </script>

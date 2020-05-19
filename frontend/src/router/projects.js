@@ -1,5 +1,6 @@
 import ListProjects from "@/pages/projects/listProjects"
 import ShowProject from "@/pages/projects/showProject"
+import AddProject from "@/pages/projects/addProject"
 
 export default [
   {
@@ -14,6 +15,14 @@ export default [
     name: 'ShowProject',
     path: '/projects/:id',
     component: ShowProject,
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    name: 'AddProject',
+    path: '/projects/add',
+    component: AddProject,
     meta: {
       requiresAuth: true
     }
