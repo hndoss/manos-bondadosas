@@ -1,6 +1,6 @@
 import ListCollaborators from "@/pages/collaborators/listCollaborators"
 import ShowCollaborator from "@/pages/collaborators/showCollaborator"
-// import createCollaborator from "@/pages/collaborators/createCollaborator"
+import AddCollaborator from "@/pages/collaborators/addCollaborator"
 
 export default [
   {
@@ -18,22 +18,13 @@ export default [
     meta: {
       requiresAuth: true
     }
+  },
+  {
+    name: 'AddCollaborator',
+    path: '/collaborators/add',
+    component: AddCollaborator,
+    meta: {
+      requiresAuth: true
+    }
   }
-  // {
-  //   name: 'CreateCollaborator',
-  //   path: '/collaborators/create',
-  //   component: CreateCollaborator,
-  //   meta: {
-  //     requiresAuth: true
-  //   }
-  // },
-  // {
-  //   name: 'UpdateCollaborator',
-  //   path: '/collaborators/edit/:id',
-  //   component: UpdateCollaborator,
-  //   meta: {
-  //     requiresAuth: true
-  //   }
-  // },
-
 ]

@@ -25,6 +25,8 @@ SECRET_KEY = '2^9wxlxq*wls*sa2!a-^7k1+vi0(8s(@tc3x5l9qy&2lz@g!jo'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+
+
 ALLOWED_HOSTS = [
     '*',
     '127.0.0.1:8080'
@@ -54,6 +56,7 @@ CORS_ALLOW_HEADERS = (
 )
 # # Application definition
 
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -61,6 +64,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_extensions',
+    'admin_log_entries',
     'corsheaders',
     'rest_framework',
     'collaborators',
