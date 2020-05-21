@@ -10,30 +10,11 @@
         <v-col>
           <v-text-field v-model="first_name" :counter="60" label="Firt Name" required></v-text-field>
           <v-text-field v-model="last_name" :counter="60" label="Last Name" required></v-text-field>
-          <v-select v-model="age" :items="ages" label="Age" required></v-select>
-          <v-select
-            v-model="category"
-            item-text="category"
-            :items="categories"
-            label="Category"
-            required
-          ></v-select>
-          <v-textarea v-model="description" color="teal">
-            <template v-slot:label>
-              <div>
-                Description
-                <small>(optional)</small>
-              </div>
-            </template>
-          </v-textarea>
-          <v-textarea v-model="direction" color="teal">
-            <template v-slot:label>
-              <div>
-                Direction
-                <small>(optional)</small>
-              </div>
-            </template>
-          </v-textarea>
+          <v-text-field v-model="email" :counter="60" label="Email" required></v-text-field>
+          <v-select v-model="sex" item-text="Sex" :items="sex_options" label="Sex" required></v-select>
+          <v-text-field v-model="age" :counter="60" label="Age" required></v-text-field>
+          <!-- Birthday -->
+          <!-- <v-date-picker v-model="date" color="green lighten-1" :show-current="false"></v-date-picker> -->
         </v-col>
       </v-row>
       <v-container align="center">
@@ -51,25 +32,26 @@ export default {
   name: "AddCollaborator",
   data() {
     return {
+      id: "", 
       first_name: "",
       last_name: "",
       age: "",
-      status: null,
-      sex: null,
+      sex: "",
+      sex_options: [ 'Male', 'Female'],
       email: "",
       valid: false
     }
   },
   methods: {
     saveNewCollaborator(){
-      let project = {
-        name: this.name,
-        description: this.description,
-        direction: this.direction,
-        status: this.status,
-        category: this.category,
+      let collaborator = {
+        first_name: this.first_name,
+        last_name: this.last_name,
+        age: this.age,
+        sex: this.sex[0],
+        email: this.email,
       }
-      return Service.post(`projects/`, project);
+      return Service.post(`collaborators/`, collaborator);
     },
     cancel(){
       this.$router.push({

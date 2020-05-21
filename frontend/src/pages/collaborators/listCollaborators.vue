@@ -4,12 +4,13 @@
     :headers="headers"
     :entities="this.collaborators"
     @click="viewCollaboratorDetails"
+    @addNewEntity="addCollaborator"
   />
 </template>
 
 <script>
 import Service from "@/utils/apiService"
-import Table from "@/components/layaout/table"
+import Table from "@/components/table"
 
 export default {
   name: "ListCollaborators",
@@ -46,7 +47,12 @@ export default {
           name: "ShowCollaborator", 
           params: { id: collaborator.id } 
         }
-    )}
+    )},
+    addCollaborator(){
+      this.$router.push({
+        name: "AddCollaborator"
+      })
+    }
 
   }
 }

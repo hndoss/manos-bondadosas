@@ -10,7 +10,7 @@
 
 <script>
 import Service from "@/utils/apiService"
-import Table from "@/components/layaout/table"
+import Table from "@/components/table"
 
 export default {
   name: "ListBeneficiaries",

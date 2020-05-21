@@ -138,7 +138,7 @@ export default {
             {
               label: "Collaborators",
               icon: "fas fa-users",
-              route: "ListCollaborator",
+              route: "ListCollaborators",
               role: "ROLE_DOCUMENT_LIST"
             },
             {

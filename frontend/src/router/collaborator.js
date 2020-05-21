@@ -4,7 +4,7 @@ import AddCollaborator from "@/pages/collaborators/addCollaborator"
 
 export default [
   {
-    name: 'ListCollaborator',
+    name: 'ListCollaborators',
     path: '/collaborators/',
     component: ListCollaborators,
     meta: {

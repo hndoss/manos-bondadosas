@@ -35,7 +35,7 @@
 </template>
 
 <script>
-import Table from "@/components/layaout/table"
+import Table from "@/components/table"
 import Service from "@/utils/apiService"
 
 export default {
