@@ -26,7 +26,6 @@ SECRET_KEY = '2^9wxlxq*wls*sa2!a-^7k1+vi0(8s(@tc3x5l9qy&2lz@g!jo'
 DEBUG = True
 
 
-
 ALLOWED_HOSTS = [
     '*',
     '127.0.0.1:8080'
@@ -54,9 +53,7 @@ CORS_ALLOW_HEADERS = (
     'x-csrftoken',
     'x-requested-with',
 )
-# # Application definition
-
-
+REST_FRAMEWORK = { 'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema' }
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -66,6 +63,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_extensions',
     'admin_log_entries',
+    'rest_framework_swagger',
     'corsheaders',
     'rest_framework',
     'collaborators',
