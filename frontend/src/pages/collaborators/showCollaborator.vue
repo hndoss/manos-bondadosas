@@ -56,6 +56,7 @@ export default {
   methods: {
     getCollaborator(){
       let id = this.$route.params.id
+      console.log(this.$route.params.id)
       return Service.get(`collaborators/${id}`);
     }
   }

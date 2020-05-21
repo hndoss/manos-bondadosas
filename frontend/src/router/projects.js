@@ -21,7 +21,7 @@ export default [
   },
   {
     name: 'AddProject',
-    path: '/projects/add',
+    path: '/add-project',
     component: AddProject,
     meta: {
       requiresAuth: true

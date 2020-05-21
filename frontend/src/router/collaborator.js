@@ -21,7 +21,7 @@ export default [
   },
   {
     name: 'AddCollaborator',
-    path: '/collaborators/add',
+    path: '/add-collaborator',
     component: AddCollaborator,
     meta: {
       requiresAuth: true
