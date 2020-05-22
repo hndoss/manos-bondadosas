@@ -49,7 +49,9 @@ export default {
         }
     )},
     addBeneficiary(){
-      console.log("add new beneficiary")
+      this.$router.push({
+        name: "AddBeneficiary"
+      })
     }
   }
 }

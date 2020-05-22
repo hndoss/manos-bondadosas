@@ -53,7 +53,6 @@ export default {
         name: "AddCollaborator"
       })
     }
-
   }
 }
 </script>
