@@ -1,0 +1,9 @@
+# General
+*.sql
+*.sqlite3
+README.md
+
+# Python
+__pycache__/
+crm/
+.fuse_*

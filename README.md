@@ -12,4 +12,5 @@ docker run -d \
     mysql:latest
 ```
 
-DB_CONNECTION=Data Source=JIMMYRAMOS\SQLEXPRESS;Initial Catalog=formula;Integrated Security=True;
+## Preguntas
+1. ¿Deberían los colaboradores en general tener acceso a la información de los beneficiados?

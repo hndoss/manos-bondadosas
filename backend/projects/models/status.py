@@ -1,7 +1,7 @@
 from django.db import models
 
 
-class ProjectStatus(models.Model):
+class Status(models.Model):
     status = models.CharField(blank=False, primary_key=True, max_length=30)
     description = models.CharField(blank=False, null=True, max_length=60)
 

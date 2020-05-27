@@ -4,9 +4,17 @@ from . import views
 
 router = routers.DefaultRouter()
 
-router.register('categories', views.ProjectCategoryView)
-router.register('statuses', views.ProjectStatusView)
-router.register('', views.ProjectView)
+router.register('categories', views.CategoryViewset)
+router.register('statuses', views.StatusViewset)
+router.register('tasks', views.TaskViewset)
+router.register(r'(?P<project_id>\d+)/tasks',
+                views.ProjectTaskViewset, basename='project_tasks')
+router.register(r'(?P<project_id>\d+)/beneficiaries',
+                views.ProjectBeneficiaryViewset, basename='beneficiaries')
+# router.register(r'(?P<project_id>\d+)/collaborators',views.CollaboratorViewset, basename='collaborators')
+router.register(r'(?P<project_id>\d+)',
+                views.ProjectDetailViewset, basename='details')
+router.register('', views.ProjectViewset)
 
 
 urlpatterns = [

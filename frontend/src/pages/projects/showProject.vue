@@ -3,6 +3,7 @@
     <v-tabs fixed-tabs background-color="cyan darken-4" dark>
       <v-tab>Information</v-tab>
       <v-tab>Collaborators</v-tab>
+      <v-tab>Beneficiaries</v-tab>
       <v-tab>Tasks</v-tab>
       <v-tab>Report</v-tab>
 
@@ -23,13 +24,34 @@
       <v-tab-item>
         <Table
           tittle="Collaborators"
-          :headers="this.headers"
+          :headers="this.person_headers"
           :entities="this.project.collaborators"
           @click="viewCollaboratorDetails"
+          @addNewEntity="addCollaborator"
         />
       </v-tab-item>
 
-      <v-tab-item></v-tab-item>
+      <v-tab-item>
+        <Table
+          tittle="Beneficiaries"
+          :headers="this.person_headers"
+          :entities="this.beneficiaries"
+          @click="viewBeneficiaryDetails"
+          @addNewEntity="addBeneficiary"
+        />
+      </v-tab-item>
+      <v-tab-item>
+        <Table
+          tittle="Tasks"
+          :headers="this.task_headers"
+          :entities="this.tasks"
+          @click="viewBeneficiaryDetails"
+          @addNewEntity="addTask"
+        />
+      </v-tab-item>
+      <v-tab-item>
+        <h1>Reports</h1>
+      </v-tab-item>
     </v-tabs>
   </div>
 </template>
@@ -45,7 +67,9 @@ export default {
     return {
       historyKey: 1,    
       project: { },
-      headers: [
+      beneficiaries: [],
+      tasks: [],
+      person_headers: [
         {
           text: 'id',
           align: 'start',
@@ -57,18 +81,39 @@ export default {
         { text: 'Age', value: 'age' },
         { text: 'Email', value: 'email' },
       ],
+      task_headers: [
+        {
+          text: 'id',
+          align: 'start',
+          filterable: true,
+          value: 'id',
+        },
+        { text: 'name', value: 'name' },
+      ],
     }
   },
   beforeMount() {
     this.getProject()
       .then(data => {
         this.project = data
-        })    
+    }),
+    this.getTasks()
+      .then(data => this.tasks = data),
+    this.getBeneficiaries()
+      .then(data => this.beneficiaries = data)
   },
   methods: {
     getProject(){
-      let id = this.$route.params.id
-      return Service.get(`projects/${id}`);
+      this.id = this.$route.params.id
+      return Service.get(`projects/${this.id}`);
+    },
+    getBeneficiaries(){
+      this.id = this.$route.params.id
+      return Service.get(`projects/${this.id}/beneficiaries`);
+    },
+    getTasks(){
+      this.id = this.$route.params.id
+      return Service.get(`projects/${this.id}/tasks`);
     },
     viewCollaboratorDetails(collaborator){
       this.$router.push(
@@ -76,7 +121,31 @@ export default {
           name: "ShowCollaborator", 
           params: { id: collaborator.id } 
         }
-    )}
+    )},
+    viewBeneficiaryDetails(beneficiary){
+      this.$router.push(
+        { 
+          name: "ShowBeneficiary", 
+          params: { id: beneficiary.id } 
+        }
+    )},
+    addCollaborator(){
+      this.$router.push({
+        name: "AddCollaborator"
+      })
+    },
+    addBeneficiary(){
+      this.$router.push({
+        name: "AddBeneficiary",
+        params: { project_id: this.$route.params.id } 
+      })
+    },
+    addTask(){
+      this.$router.push({
+        name: "AddTask",
+        params: { project_id: this.$route.params.id } 
+      })
+    }
   }
 }
 </script>

@@ -19,7 +19,6 @@ const Service = {
         })
   },
   post(url, object) {
-    console.log(`${VUE_APP_API_URL}/${url}`, object)
     return axios
       .post(`${VUE_APP_API_URL}/${url}`, object)
       .then(response => response.data)

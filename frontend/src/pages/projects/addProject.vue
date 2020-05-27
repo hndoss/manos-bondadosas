@@ -84,9 +84,7 @@ export default {
       return Service.post(`projects/`, project);
     },
     cancel(){
-      this.$router.push({
-        name: "ListProjects"
-      })
+      this.$router.go(-1)
     }
   }
 }
