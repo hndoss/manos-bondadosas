@@ -51,12 +51,11 @@ export default {
         sex: this.sex[0],
         email: this.email,
       }
-      return Service.post(`collaborators/`, collaborator);
+      Service.post(`collaborators/`, collaborator)
+        .then(response => this.$router.go(-1))
     },
     cancel(){
-      this.$router.push({
-        name: "ListCollaborators"
-      })
+      this.$router.go(-1)
     }
   }
 }

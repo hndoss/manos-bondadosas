@@ -44,6 +44,7 @@ export default {
   },
   methods: {
     saveNewBeneficiary(){
+      let projectId = this.$route.params.project_id
       let beneficiary = {
         first_name: this.first_name,
         last_name: this.last_name,
@@ -51,12 +52,13 @@ export default {
         sex: this.sex[0],
         email: this.email,
       }
-      return Service.post(`beneficiaries/`, beneficiary);
+      if(projectId)
+        return Service.post(`projects/${projectId}/beneficiaries/`, beneficiary);
+      else
+        return Service.post(`beneficiaries/`, beneficiary);
     },
     cancel(){
-      this.$router.push({
-        name: "ListBeneficiaries"
-      })
+      this.$router.go(-1)
     }
   }
 }
