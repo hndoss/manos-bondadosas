@@ -44,6 +44,7 @@ export default {
   },
   methods: {
     saveNewCollaborator(){
+      let projectId = this.$route.params.project_id
       let collaborator = {
         first_name: this.first_name,
         last_name: this.last_name,
@@ -51,8 +52,12 @@ export default {
         sex: this.sex[0],
         email: this.email,
       }
-      Service.post(`collaborators/`, collaborator)
-        .then(response => this.$router.go(-1))
+      if(projectId)
+        return Service.post(`projects/${projectId}/collaborators/`, collaborator)
+          .then(this.$router.go(-1))
+      else
+        return Service.post(`collaborators/`, collaborator)
+          .then(this.$router.go(-1))
     },
     cancel(){
       this.$router.go(-1)

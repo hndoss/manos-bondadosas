@@ -9,18 +9,13 @@ class Project(models.Model):
     description = models.CharField(blank=False, null=True, max_length=120)
     direction = models.CharField(blank=False, null=True, max_length=120)
     collaborators = models.ManyToManyField(
-        'collaborators.Collaborator', blank=True)
+        'collaborators.Collaborator', related_name='projects', blank=True)
     beneficiaries = models.ManyToManyField(
-        'beneficiaries.Beneficiary', blank=True)
-
-    # default related_name = project_set
+        'beneficiaries.Beneficiary', related_name='projects', blank=True)
     status = models.ForeignKey(
         Status, on_delete=models.CASCADE, related_name="projects")
     category = models.ForeignKey(
         Category, on_delete=models.CASCADE, related_name="projects")
-
-    # tasks =  models.ForeignKey(
-    #     ProjectTask, on_delete=models.CASCADE, related_name="projects")
 
     def __str__(self):
         return self.name
