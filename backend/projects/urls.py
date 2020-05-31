@@ -11,9 +11,8 @@ router.register(r'(?P<project_id>\d+)/tasks',
                 views.ProjectTaskViewset, basename='project_tasks')
 router.register(r'(?P<project_id>\d+)/beneficiaries',
                 views.ProjectBeneficiaryViewset, basename='beneficiaries')
-# router.register(r'(?P<project_id>\d+)/collaborators',views.CollaboratorViewset, basename='collaborators')
-router.register(r'(?P<project_id>\d+)',
-                views.ProjectDetailViewset, basename='details')
+router.register(r'(?P<project_id>\d+)/collaborators',
+                views.ProjectCollaboratorViewset, basename='collaborators')
 router.register('', views.ProjectViewset)
 
 

@@ -25,7 +25,7 @@
         <Table
           tittle="Collaborators"
           :headers="this.person_headers"
-          :entities="this.project.collaborators"
+          :entities="this.collaborators"
           @click="viewCollaboratorDetails"
           @addNewEntity="addCollaborator"
         />
@@ -67,6 +67,7 @@ export default {
     return {
       historyKey: 1,    
       project: { },
+      collaborators: [],
       beneficiaries: [],
       tasks: [],
       person_headers: [
@@ -99,6 +100,8 @@ export default {
     }),
     this.getTasks()
       .then(data => this.tasks = data),
+    this.getCollaborators()
+      .then(data => this.collaborators = data)
     this.getBeneficiaries()
       .then(data => this.beneficiaries = data)
   },
@@ -106,6 +109,10 @@ export default {
     getProject(){
       this.id = this.$route.params.id
       return Service.get(`projects/${this.id}`);
+    },
+    getCollaborators(){
+      this.id = this.$route.params.id
+      return Service.get(`projects/${this.id}/collaborators`);
     },
     getBeneficiaries(){
       this.id = this.$route.params.id
@@ -131,13 +138,14 @@ export default {
     )},
     addCollaborator(){
       this.$router.push({
-        name: "AddCollaborator"
+        name: "AddCollaborator",
+        params: { project_id: this.$route.params.id }
       })
     },
     addBeneficiary(){
       this.$router.push({
         name: "AddBeneficiary",
-        params: { project_id: this.$route.params.id } 
+        params: { project_id: this.$route.params.id }
       })
     },
     addTask(){

@@ -10,7 +10,7 @@ class Beneficiary(models.Model):
     id = models.AutoField(primary_key=True)
     first_name = models.CharField(blank=False, max_length=30)
     last_name = models.CharField(blank=False, max_length=30)
-    age = models.IntegerField(blank=False)
+    age = models.PositiveIntegerField(blank=False)
     sex = models.CharField(blank=False, max_length=1, choices=sex_options)
     email = models.EmailField(blank=False, max_length=254)
 
