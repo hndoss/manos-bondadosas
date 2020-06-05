@@ -1,7 +1,7 @@
 <template>
   <div>
     <Table
-      tittle="Projects"
+      title="Projects"
       :headers="headers"
       :entities="projects"
       @click="viewProjectDetails"

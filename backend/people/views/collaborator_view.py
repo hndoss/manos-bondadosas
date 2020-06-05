@@ -1,4 +1,3 @@
-
 from rest_framework import viewsets, permissions
 from ..serializers import CollaboratorSerializer
 from ..models import Collaborator

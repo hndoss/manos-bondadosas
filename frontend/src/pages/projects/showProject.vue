@@ -13,36 +13,39 @@
             <v-col>
               <v-img src="@/assets/contact.png" aspect-ratio="1" class="grey lighten-2"></v-img>
             </v-col>
-            <v-col>
-              Project ID: {{ project.id }}
-              <br />
-            </v-col>
+            <v-col>Project ID: {{ project.id }}</v-col>
           </v-row>
         </v-container>
       </v-tab-item>
 
       <v-tab-item>
+        <Card
+          background="projects/collaborate.png"
+          instruction="Search for a new collaborator."
+          :collection="this.collaborators"
+        ></Card>
         <Table
-          tittle="Collaborators"
+          :title="project.name + ' Collaborators'"
           :headers="this.person_headers"
-          :entities="this.collaborators"
+          :entities="this.project.collaborators"
           @click="viewCollaboratorDetails"
           @addNewEntity="addCollaborator"
         />
       </v-tab-item>
 
       <v-tab-item>
+        section to add new collaborator to project
         <Table
-          tittle="Beneficiaries"
+          title="Beneficiaries"
           :headers="this.person_headers"
-          :entities="this.beneficiaries"
+          :entities="this.project.beneficiaries"
           @click="viewBeneficiaryDetails"
           @addNewEntity="addBeneficiary"
         />
       </v-tab-item>
       <v-tab-item>
         <Table
-          tittle="Tasks"
+          title="Tasks"
           :headers="this.task_headers"
           :entities="this.tasks"
           @click="viewBeneficiaryDetails"
@@ -59,17 +62,16 @@
 <script>
 import Table from "@/components/table"
 import Service from "@/utils/apiService"
+import Card from "@/components/card"
 
 export default {
   name: "ShowProject",
-  components: { Table },
+  components: { Table, Card },
   data() {
     return {
-      historyKey: 1,    
       project: { },
-      collaborators: [],
-      beneficiaries: [],
       tasks: [],
+      collaborators: [],
       person_headers: [
         {
           text: 'id',
@@ -95,15 +97,11 @@ export default {
   },
   beforeMount() {
     this.getProject()
-      .then(data => {
-        this.project = data
-    }),
+      .then(data => this.project = data[0])
     this.getTasks()
-      .then(data => this.tasks = data),
+      .then(data => this.tasks = data)
     this.getCollaborators()
       .then(data => this.collaborators = data)
-    this.getBeneficiaries()
-      .then(data => this.beneficiaries = data)
   },
   methods: {
     getProject(){
@@ -111,12 +109,7 @@ export default {
       return Service.get(`projects/${this.id}`);
     },
     getCollaborators(){
-      this.id = this.$route.params.id
-      return Service.get(`projects/${this.id}/collaborators`);
-    },
-    getBeneficiaries(){
-      this.id = this.$route.params.id
-      return Service.get(`projects/${this.id}/beneficiaries`);
+      return Service.get(`people/collaborators`);
     },
     getTasks(){
       this.id = this.$route.params.id
@@ -138,7 +131,7 @@ export default {
     )},
     addCollaborator(){
       this.$router.push({
-        name: "AddCollaborator",
+        name: "AddCollaboratorToProject",
         params: { project_id: this.$route.params.id }
       })
     },
@@ -153,7 +146,7 @@ export default {
         name: "AddTask",
         params: { project_id: this.$route.params.id } 
       })
-    }
+    },
   }
 }
 </script>

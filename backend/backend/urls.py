@@ -23,8 +23,7 @@ schema_view = get_swagger_view(title='API')
 urlpatterns = [
     url('admin/', admin.site.urls),
     url('doc/', schema_view),
-    url('api/v1/collaborators/', include('collaborators.urls')),
-    url('api/v1/beneficiaries/', include('beneficiaries.urls')),
+    url('api/v1/people/', include('people.urls')),
     url('api/v1/projects/', include('projects.urls'))
 ]
 
