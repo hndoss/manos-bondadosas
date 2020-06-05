@@ -53,7 +53,9 @@ CORS_ALLOW_HEADERS = (
     'x-csrftoken',
     'x-requested-with',
 )
-REST_FRAMEWORK = { 'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema' }
+REST_FRAMEWORK = {
+    'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema',
+}
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -66,8 +68,7 @@ INSTALLED_APPS = [
     'rest_framework_swagger',
     'corsheaders',
     'rest_framework',
-    'collaborators',
-    'beneficiaries',
+    'people',
     'projects'
 ]
 

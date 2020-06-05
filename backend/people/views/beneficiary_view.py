@@ -1,6 +1,6 @@
 from rest_framework import viewsets, permissions
-from .serializers import BeneficiarySerializer
-from .models import Beneficiary
+from ..serializers import BeneficiarySerializer
+from ..models import Beneficiary
 
 
 class BeneficiaryView(viewsets.ModelViewSet):

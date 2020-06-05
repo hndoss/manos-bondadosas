@@ -22,7 +22,7 @@
 
       <v-tab-item>
         <!-- <Table
-          tittle="Collaborators"
+          title="Collaborators"
           :headers="this.headers"
           :entities="this.project.collaborators"
           @click="viewCollaboratorDetails"
@@ -66,7 +66,7 @@ export default {
   methods: {
     getBeneficiary(){
       let id = this.$route.params.id
-      return Service.get(`beneficiaries/${id}`);
+      return Service.get(`people/beneficiaries/${id}`);
     }
   }
 }

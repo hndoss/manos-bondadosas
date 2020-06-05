@@ -1,6 +1,6 @@
 <template>
   <div class="pl-sm-2 pl-md-2 pl-mx-2">
-    <h1>{{tittle}}</h1>
+    <h1>{{title}}</h1>
 
     <v-card class="ma-sm-6 ma-md-6 ma-mx-6">
       <v-card-title>
@@ -30,7 +30,7 @@
 <script lang="ts">
 export default {
   name: "Table",
-  props: ["tittle", "headers", "entities"],
+  props: ["title", "headers", "entities"],
   data() {
     return {
       search: "",
@@ -40,9 +40,9 @@ export default {
     handleEntityClick(row) {
       this.$emit("click", row);
     },
-    handleAddEntityClick(){
-      this.$emit("addNewEntity")
-    }
+    handleAddEntityClick() {
+      this.$emit("addNewEntity");
+    },
   },
 };
 </script>

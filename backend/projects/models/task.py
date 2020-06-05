@@ -10,7 +10,7 @@ class Task(models.Model):
     description = models.CharField(blank=False, null=True, max_length=60)
     order = models.IntegerField(blank=False, null=False)
     responsable = models.ForeignKey(
-        'collaborators.Collaborator', on_delete=models.CASCADE, null=True)
+        'people.Collaborator', on_delete=models.CASCADE, null=True)
     category = models.ForeignKey(
         TaskCategory, on_delete=models.CASCADE, blank=True, null=True)
     project = models.ForeignKey(

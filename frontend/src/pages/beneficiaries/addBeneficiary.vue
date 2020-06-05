@@ -93,7 +93,7 @@ export default {
           return Service.post(`projects/${projectId}/beneficiaries/`, beneficiary)
             .then(this.$router.go(-1))
         else
-          return Service.post(`beneficiaries/`, beneficiary)
+          return Service.post(`people/beneficiaries/`, beneficiary)
             .then(this.$router.go(-1))
       }
     },

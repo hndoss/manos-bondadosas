@@ -1,6 +1,6 @@
 <template>
   <Table
-    tittle="Collaborators"
+    title="Collaborators"
     :headers="headers"
     :entities="this.collaborators"
     @click="viewCollaboratorDetails"
@@ -38,9 +38,8 @@ export default {
   },
   methods: {
     getCollaborators(){
-      return Service.get("collaborators");
+      return Service.get("people/collaborators");
     },
-
     viewCollaboratorDetails(collaborator){
       this.$router.push(
         { 
