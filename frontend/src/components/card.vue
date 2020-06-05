@@ -20,7 +20,7 @@
               color="blue-grey lighten-2"
               label="Select"
               item-text="first_name"
-              item-value="first_name"
+              item-value="id"
               multiple
             >
               <template v-slot:selection="data">
@@ -77,9 +77,10 @@ export default {
     }
   },
   watch: {
-    isUpdating (val) {
-      if (val) {
+    isUpdating (value) {
+      if (value) {
         setTimeout(() => (this.isUpdating = false), 1000)
+        this.$emit("saveClick", this.friends);
       }
     },
   },
