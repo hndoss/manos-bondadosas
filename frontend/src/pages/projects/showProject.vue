@@ -23,6 +23,7 @@
           background="projects/collaborate.png"
           instruction="Search for a new collaborator."
           :collection="this.collaborators"
+          @saveClick="this.addCollaboratorsToProject"
         ></Card>
         <Table
           :title="project.name + ' Collaborators'"
@@ -147,6 +148,19 @@ export default {
         params: { project_id: this.$route.params.id } 
       })
     },
+    addCollaboratorsToProject(collaborators){
+      collaborators.forEach(collaborator_id => {
+        let collaborator = {
+          "collaborator_id" : collaborator_id
+        } 
+
+        Service.post(`projects/${this.id}/collaborators/`, collaborator)
+          .then(
+            this.getProject()
+              .then(data => this.project = data[0])
+          )
+      });
+    }
   }
 }
 </script>

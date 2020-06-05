@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from ..models import Project, ProjectBeneficiary
+from ..models import Project, ProjectBeneficiary, ProjectCollaborator 
 from people.serializers.collaborator_serializer import CollaboratorSerializer
 from people.serializers.beneficiary_serializer import BeneficiarySerializer
 
@@ -27,3 +27,9 @@ class ProjectBeneficiarySerializer(serializers.ModelSerializer):
     class Meta:
         model = ProjectBeneficiary
         fields = ('project_id', 'beneficiary_id', )
+
+class ProjectCollaboratorSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = ProjectCollaborator
+        fields = ('project_id', 'collaborator_id', )
