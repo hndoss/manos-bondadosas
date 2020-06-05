@@ -1,39 +1,30 @@
-import createCollaborator from "@/pages/collaborators/createCollaborator"
-import ContactCreate from '../pages/contact/Create'
-import ContactUpdate from '../pages/contact/Update'
-import ContactShow from '../pages/contact/Show'
+import ListCollaborators from "@/pages/collaborators/listCollaborators"
+import ShowCollaborator from "@/pages/collaborators/showCollaborator"
+import AddCollaborator from "@/pages/collaborators/addCollaborator"
 
 export default [
   {
-    name: 'ListCollaborator',
+    name: 'ListCollaborators',
     path: '/collaborators/',
-    component: ListCollaborator,
-    meta: {
-      requiresAuth: true
-    }
-  },
-  {
-    name: 'CreateCollaborator',
-    path: '/collaborators/create',
-    component: CreateCollaborator,
-    meta: {
-      requiresAuth: true
-    }
-  },
-  {
-    name: 'UpdateCollaborator',
-    path: '/collaborators/edit/:id',
-    component: UpdateCollaborator,
+    component: ListCollaborators,
     meta: {
       requiresAuth: true
     }
   },
   {
     name: 'ShowCollaborator',
-    path: '/collaborators/show/:id',
+    path: '/collaborators/:id',
     component: ShowCollaborator,
     meta: {
       requiresAuth: true
     }
-  }
+  },
+  {
+    name: 'AddCollaborator',
+    path: '/add-collaborator',
+    component: AddCollaborator,
+    meta: {
+      requiresAuth: true
+    }
+  },
 ]

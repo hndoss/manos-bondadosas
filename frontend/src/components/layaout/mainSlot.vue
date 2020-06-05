@@ -138,13 +138,13 @@ export default {
             {
               label: "Collaborators",
               icon: "fas fa-users",
-              route: "DocumentList",
+              route: "ListCollaborators",
               role: "ROLE_DOCUMENT_LIST"
             },
             {
-              label: "Benefited",
+              label: "Beneficiaries",
               icon: "fas fa-users",
-              route: "TemplateList",
+              route: "ListBeneficiaries",
               role: "ROLE_TEMPLATE_LIST"
             }
           ],
@@ -153,261 +153,51 @@ export default {
         {
           label: "Projects",
           icon: "fas fa-hammer",
-          route: "CompanyList",
+          route: "ListProjects",
           role: "ROLE_COMPANY_LIST"
         },
         {
-          label: "Events",
-          icon: "fas fa-folder-open",
-          route: "ProjectList",
-          role: "ROLE_PROJECT_LIST"
-        },
-        {
-          label: "Tasks",
-          icon: "fas fa-tasks",
-          route: "TaskList",
-          role: "ROLE_TASK_LIST"
-        },
-        {
-          label: "Documents",
-          icon: "far fa-file",
+          label: "Places",
+          icon: "fas fa-building",
           children: [
             {
-              label: "documents",
-              icon: "turned_in",
-              route: "DocumentList",
-              role: "ROLE_DOCUMENT_LIST"
+              label: "Regions",
+              icon: "fas fa-map-marked",
+              route: "fas fa-building",
+              role: "ROLE_CONTACT_LIST"
             },
             {
-              label: "templates",
-              icon: "turned_in_not",
-              route: "TemplateList",
-              role: "ROLE_TEMPLATE_LIST"
-            },
-            {
-              label: "template_types",
-              icon: "tune",
-              route: "TemplateTypeList",
-              role: "ROLE_TEMPLATE_TYPE_LIST"
+              label: "Locals",
+              icon: "fas fa-building",
+              route: "AddressList",
+              role: "ROLE_ADDRESS_LIST"
             }
           ]
         },
-        // {
-        //   label: "contacts",
-        //   icon: "contacts",
-        //   children: [
-        //     {
-        //       label: "contacts",
-        //       icon: "local_phone",
-        //       route: "ContactList",
-        //       role: "ROLE_CONTACT_LIST"
-        //     },
-        //     {
-        //       label: "address",
-        //       icon: "my_location",
-        //       route: "AddressList",
-        //       role: "ROLE_ADDRESS_LIST"
-        //     }
-        //   ]
-        // },
-        // {
-        //   label: "product",
-        //   icon: "store",
-        //   children: [
-        //     {
-        //       label: "category",
-        //       icon: "format_align_justify",
-        //       route: "CategoryList",
-        //       role: "ROLE_CATEGORY_LIST"
-        //     },
-        //     {
-        //       label: "product",
-        //       icon: "format_align_justify",
-        //       route: "ProductList",
-        //       role: "ROLE_PRODUCT_LIST"
-        //     }
-        //   ]
-        // },
-        // {
-        //   label: "cms",
-        //   icon: "mode_edit",
-        //   children: [
-        //     {
-        //       label: "text",
-        //       icon: "text_fields",
-        //       route: "TextList",
-        //       role: "ROLE_TEXT_LIST"
-        //     }
-        //   ]
-        // },
-        // {
-        //   label: "order_header",
-        //   icon: "local_grocery_store",
-        //   children: [
-        //     {
-        //       label: "order_header",
-        //       icon: "assignment",
-        //       route: "OrderHeaderList",
-        //       role: "ROLE_ORDER_HEADER_LIST"
-        //     },
-        //     {
-        //       label: "order_status",
-        //       icon: "library_books",
-        //       route: "OrderStatusList",
-        //       role: "ROLE_ORDER_STATUS_LIST"
-        //     },
-        //     {
-        //       label: "order_line_status",
-        //       icon: "format_align_justify",
-        //       route: "OrderLineStatusList",
-        //       role: "ROLE_ORDER_LINE_STATUS_LIST"
-        //     }
-        //   ]
-        // },
-        // {
-        //   label: "invoice_header",
-        //   icon: "attach_money",
-        //   children: [
-        //     {
-        //       label: "invoice_header",
-        //       icon: "format_align_justify",
-        //       route: "InvoiceHeaderList",
-        //       role: "ROLE_INVOICE_HEADER_LIST"
-        //     },
-        //     {
-        //       label: "invoice_status",
-        //       icon: "format_align_justify",
-        //       route: "InvoiceStatusList",
-        //       role: "ROLE_INVOICE_STATUS_LIST"
-        //     },
-        //     {
-        //       label: "invoice_type",
-        //       icon: "format_align_justify",
-        //       route: "InvoiceTypeList",
-        //       role: "ROLE_INVOICE_TYPE_LIST"
-        //     }
-        //   ]
-        // },
-        // {
-        //   label: "dictionaries",
-        //   icon: "list",
-        //   children: [
-        //     {
-        //       label: "country",
-        //       icon: "flag",
-        //       route: "CountryList",
-        //       role: "ROLE_COUNTRY_LIST"
-        //     },
-        //     {
-        //       label: "city",
-        //       icon: "location_city",
-        //       route: "CityList",
-        //       role: "ROLE_CITY_LIST"
-        //     },
-        //     {
-        //       label: "language",
-        //       icon: "format_align_justify",
-        //       route: "LanguageList",
-        //       role: "ROLE_LANGUAGE_LIST"
-        //     },
-        //     {
-        //       label: "vat",
-        //       icon: "format_align_justify",
-        //       route: "VatList",
-        //       role: "ROLE_VAT_LIST"
-        //     },
-        //     {
-        //       label: "currency",
-        //       icon: "format_align_justify",
-        //       route: "CurrencyList",
-        //       role: "ROLE_CURRENCY_LIST"
-        //     },
-        //     {
-        //       label: "contact_type",
-        //       icon: "call_end",
-        //       route: "ContactTypeList",
-        //       role: "ROLE_CONTACT_TYPE_LIST"
-        //     },
-        //     {
-        //       label: "project_type",
-        //       icon: "work",
-        //       route: "ProjectTypeList",
-        //       role: "ROLE_PROJECT_TYPE_LIST"
-        //     },
-        //     {
-        //       label: "project_status",
-        //       icon: "web",
-        //       route: "ProjectStatusList",
-        //       role: "ROLE_PROJECT_STATUS_LIST"
-        //     },
-        //     {
-        //       label: "task_status",
-        //       icon: "web_asset",
-        //       route: "TaskStatusList",
-        //       role: "ROLE_TASK_STATUS_LIST"
-        //     },
-        //     {
-        //       label: "brand",
-        //       icon: "format_align_justify",
-        //       route: "BrandList",
-        //       role: "ROLE_BRAND_LIST"
-        //     },
-        //     {
-        //       label: "channel",
-        //       icon: "format_align_justify",
-        //       route: "ChannelList",
-        //       role: "ROLE_CHANNEL_LIST"
-        //     },
-        //     {
-        //       label: "label",
-        //       icon: "label",
-        //       route: "LabelList",
-        //       role: "ROLE_LABEL_LIST"
-        //     },
-        //     {
-        //       label: "paymentType",
-        //       icon: "format_align_justify",
-        //       route: "PaymentTypeList",
-        //       role: "ROLE_PAYMENT_TYPE_LIST"
-        //     },
-        //     {
-        //       label: "shipmentMethod",
-        //       icon: "format_align_justify",
-        //       route: "ShipmentMethodList",
-        //       role: "ROLE_SHIPMENT_METHOD_LIST"
-        //     }
-        //   ]
-        // },
-        // {
-        //   label: "users",
-        //   icon: "security",
-        //   children: [
-        //     {
-        //       label: "users",
-        //       icon: "account_box",
-        //       route: "UserList",
-        //       role: "ROLE_USER_LIST"
-        //     },
-        //     {
-        //       label: "groups",
-        //       icon: "people_outline",
-        //       route: "GroupList",
-        //       role: "ROLE_GROUP_LIST"
-        //     }
-        //   ]
-        // },
-        // {
-        //   label: "maintenance",
-        //   icon: "settings",
-        //   children: [
-        //     {
-        //       label: "history",
-        //       icon: "timelapse",
-        //       route: "HistoryList",
-        //       role: "ROLE_HISTORY_LIST"
-        //     }
-        //   ]
-        // }
+        {
+          label: "Inventories",
+          icon: "fas fa-box",
+          children: [
+            {
+              label: "category",
+              icon: "format_align_justify",
+              route: "CategoryList",
+              role: "ROLE_CATEGORY_LIST"
+            },
+            {
+              label: "product",
+              icon: "format_align_justify",
+              route: "ProductList",
+              role: "ROLE_PRODUCT_LIST"
+            }
+          ]
+        },
+        {
+          label: "Reports",
+          icon: "fas fa-chart-pie",
+          route: "reports",
+          role: "ROLE_USER_DASHBOARD"
+        },
       ]
     };
   },
@@ -417,12 +207,12 @@ export default {
       return "Admin";
     }
   },
-  // watch: {
-  //   $route(to, from) {
-  //     this.activeRoute = this.routeName(to.name)
-  //     this.initActiveMenuItem()
-  //   }
-  // },
+  watch: {
+    $route(to, from) {
+      this.activeRoute = this.routeName(to.name)
+      this.initActiveMenuItem()
+    }
+  },
   created() {
     this.activeRoute = this.routeName(this.$route.name);
   },
@@ -468,7 +258,6 @@ export default {
       }
     },
     isGranted(item) {
-      console.log(item);
       return true;
     },
     isGrantedItem(item) {
