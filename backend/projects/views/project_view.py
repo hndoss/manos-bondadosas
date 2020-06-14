@@ -1,6 +1,6 @@
 from rest_framework import viewsets, permissions
 from ..serializers import ProjectSerializer, ProjectDetailSerializer, ProjectBeneficiarySerializer, ProjectCollaboratorSerializer
-from ..models import Project
+from ..models import Project, ProjectCollaborator, ProjectBeneficiary
 
 
 class ProjectViewset(viewsets.ModelViewSet):
@@ -15,7 +15,7 @@ class ProjectDetailViewset(viewsets.ModelViewSet):
 
 class ProjectBeneficiaryViewset(viewsets.ModelViewSet):
     serializer_class = ProjectBeneficiarySerializer
-    queryset = Project.objects.all()
+    queryset = ProjectBeneficiary.objects.all()
     slug_field = 'project_id'
     slug_url_kwarg = 'project_id'
 
@@ -32,7 +32,7 @@ class ProjectBeneficiaryViewset(viewsets.ModelViewSet):
 
 class ProjectCollaboratorViewset(viewsets.ModelViewSet):
     serializer_class = ProjectCollaboratorSerializer
-    queryset = Project.objects.all()
+    queryset = ProjectCollaborator.objects.all()
     slug_field = 'project_id'
     slug_url_kwarg = 'project_id'
 
