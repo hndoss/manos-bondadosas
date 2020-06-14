@@ -9,28 +9,28 @@
         </v-col>
         <v-col>
           <v-text-field
-            v-model="first_name"
+            v-model="this.collaborator.first_name"
             :counter="60"
             label="Firt Name"
             :rules='this.validator.validateTextField("First Name", 60)'
             class="required"
           ></v-text-field>
           <v-text-field
-            v-model="last_name"
+            v-model="this.collaborator.last_name"
             :counter="60"
             label="Last Name"
             :rules='this.validator.validateTextField("Last Name", 60)'
             class="required"
           ></v-text-field>
           <v-text-field
-            v-model="email"
+            v-model="this.collaborator.email"
             :counter="60"
             label="Email"
-            :rules='this.validator.validateEmail()'
+            :rules="this.validator.validateEmail()"
             class="required"
           ></v-text-field>
           <v-select
-            v-model="sex"
+            v-model="this.collaborator.sex"
             item-text="Sex"
             :items="sex_options"
             label="Sex"
@@ -64,6 +64,14 @@ export default {
   name: "AddCollaborator",
   data() {
     return {
+      collaborator: {
+        id: "",
+        first_name: "",
+        last_name: "",
+        age: null,
+        sex: "",
+        email: "",
+      },
       id: "", 
       first_name: "",
       last_name: "",
@@ -90,10 +98,10 @@ export default {
           email: this.email,
         }
         if(projectId)
-          return Service.post(`projects/${projectId}/collaborators/`, collaborator)
+          return Service.post(`projects/${projectId}/collaborators/`, this.collaborator)
             .then(this.$router.go(-1))
         else
-          return Service.post(`people/collaborators/`, collaborator)
+          return Service.post(`people/collaborators/`, this.collaborator)
             .then(this.$router.go(-1))
       }
     },

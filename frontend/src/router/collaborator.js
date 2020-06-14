@@ -27,4 +27,12 @@ export default [
       requiresAuth: true
     }
   },
+  {
+    name: 'UpdateCollaborator',
+    path: '/update-collaborator',
+    component: AddCollaborator,
+    meta: {
+      requiresAuth: true
+    }
+  },
 ]

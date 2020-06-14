@@ -66,10 +66,12 @@ INSTALLED_APPS = [
     'django_extensions',
     'admin_log_entries',
     'rest_framework_swagger',
+    'import_export',
     'corsheaders',
     'rest_framework',
+    'axes',
     'people',
-    'projects'
+    'projects',
 ]
 
 MIDDLEWARE = [
@@ -81,6 +83,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'axes.middleware.AxesMiddleware',
 ]
 
 ROOT_URLCONF = 'backend.urls'
@@ -152,3 +155,17 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# Axes Configuration
+AXES_LOGIN_FAILURE_LIMIT=3
+AXES_LOCK_OUT_AT_FAILURE=True
+AXES_COOLOFF_TIME=1
+AXES_LOCKOUT_URL="http://www.google.com"
+
+AUTHENTICATION_BACKENDS = [
+    # AxesBackend should be the first backend in the AUTHENTICATION_BACKENDS list.
+    'axes.backends.AxesBackend',
+
+    # Django ModelBackend is the default authentication backend.
+    'django.contrib.auth.backends.ModelBackend',
+]

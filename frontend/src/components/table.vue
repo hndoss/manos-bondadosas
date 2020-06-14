@@ -12,14 +12,24 @@
           hide-details
         ></v-text-field>
       </v-card-title>
-      <v-data-table
-        :headers="headers"
-        :items="entities"
-        :search="search"
-        @click:row="handleEntityClick"
-      ></v-data-table>
+      <v-data-table :headers="headers" :items="entities" :search="search">
+        <template v-slot:item.actions="{ item }">
+          <v-icon small class="mr-2" @click="handleButtonClick('showEntity', item)">mdi-eye</v-icon>
+          <v-icon small class="mr-2" @click="handleButtonClick('updateEntity', item)">mdi-pencil</v-icon>
+          <v-icon small class="mr-2" @click="handleButtonClick('removeEntity', item)">mdi-delete</v-icon>
+        </template>
+      </v-data-table>
+
       <v-col cols="12" sm="10" md="10">
-        <v-btn absolute dark fab top left color="red darken-4" @click="handleAddEntityClick">
+        <v-btn
+          absolute
+          dark
+          fab
+          top
+          left
+          color="red darken-4"
+          @click="handleButtonClick('addNewEntity')"
+        >
           <v-icon>mdi-plus</v-icon>
         </v-btn>
       </v-col>
@@ -37,11 +47,8 @@ export default {
     };
   },
   methods: {
-    handleEntityClick(row) {
-      this.$emit("click", row);
-    },
-    handleAddEntityClick() {
-      this.$emit("addNewEntity");
+    handleButtonClick(emitIdentifier, row) {
+      this.$emit(emitIdentifier, row);
     },
   },
 };
