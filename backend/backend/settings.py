@@ -14,7 +14,7 @@ import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
@@ -66,7 +66,6 @@ INSTALLED_APPS = [
     'django_extensions',
     'admin_log_entries',
     'rest_framework_swagger',
-    'import_export',
     'corsheaders',
     'rest_framework',
     'axes',
@@ -157,10 +156,10 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 # Axes Configuration
-AXES_LOGIN_FAILURE_LIMIT=3
-AXES_LOCK_OUT_AT_FAILURE=True
-AXES_COOLOFF_TIME=1
-AXES_LOCKOUT_URL="http://www.google.com"
+AXES_LOGIN_FAILURE_LIMIT = 3
+AXES_LOCK_OUT_AT_FAILURE = True
+AXES_COOLOFF_TIME = 1
+AXES_LOCKOUT_URL = "http://www.google.com"
 
 AUTHENTICATION_BACKENDS = [
     # AxesBackend should be the first backend in the AUTHENTICATION_BACKENDS list.

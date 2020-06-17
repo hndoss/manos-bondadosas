@@ -1,6 +1,6 @@
 <template>
   <div class="ml-sm-4 ml-md-4 ml-lg-4 mr-sm-4 mr-md-4 mr-lg-4">
-    <h1>Add New Collaborator</h1>
+    <h1>Update Collaborator</h1>
     <v-form lazy-validation v-model="valid" ref="form">
       <v-row>
         <v-col>
@@ -61,9 +61,17 @@ import Service from "@/utils/apiService"
 import Validator from "@/utils/validator"
 
 export default {
-  name: "AddCollaborator",
+  name: "UpdateCollaborator",
   data() {
     return {
+      collaborator: {
+        id: "",
+        first_name: "",
+        last_name: "",
+        age: null,
+        sex: "",
+        email: "",
+      },
       id: "", 
       first_name: "",
       last_name: "",

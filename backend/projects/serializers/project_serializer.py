@@ -8,6 +8,10 @@ class ProjectSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Project
+        extra_kwargs = {
+            'collaborators': {'write_only': True},
+            'beneficiaries': {'write_only': True},
+        }
         fields = ('id', 'name', 'description',
                   'direction', 'status', 'category', 'beneficiaries', 'collaborators')
 

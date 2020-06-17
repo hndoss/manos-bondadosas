@@ -11,8 +11,3 @@ class ProjectViewset(viewsets.ModelViewSet):
         if self.action == "retrieve":
             return ProjectDetailSerializer
         return self.serializer_class
-
-
-class ProjectDetailViewset(viewsets.ModelViewSet):
-    serializer_class = ProjectDetailSerializer
-    queryset = Project.objects.all()

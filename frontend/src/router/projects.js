@@ -1,6 +1,7 @@
 import ListProjects from "@/pages/projects/listProjects"
 import ShowProject from "@/pages/projects/showProject"
 import AddProject from "@/pages/projects/addProject"
+import UpdateProject from "@/pages/projects/updateProject"
 
 export default [
   {
@@ -23,6 +24,14 @@ export default [
     name: 'AddProject',
     path: '/add-project',
     component: AddProject,
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    name: 'UpdateProject',
+    path: '/update-project/:id',
+    component: UpdateProject,
     meta: {
       requiresAuth: true
     }

@@ -113,8 +113,8 @@ export default {
     }
   },
   beforeMount() {
-    this.getProject()
-      .then(data => this.project = data[0])
+    this.getProject().then(data => this.project = data)
+      
     this.getTasks()
       .then(data => this.tasks = data)
     this.getCollaborators()
@@ -134,12 +134,10 @@ export default {
       Service.delete(`projects/${this.id}/collaborators/`, collaborator.id)
           .then(
             this.getProject()
-              .then(data => this.project = data[0])
+              .then(data => this.project = data)
           )
     },
-    getProject(){
-      return Service.get(`projects/${this.id}`);
-    },
+    async getProject(){ return await Service.get(`projects/${this.id}`); },
     getCollaborators(){
       return Service.get(`people/collaborators`);
     },

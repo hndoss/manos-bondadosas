@@ -1,6 +1,6 @@
 <template>
   <div class="ml-sm-4 ml-md-4 ml-lg-4 mr-sm-4 mr-md-4 mr-lg-4">
-    <h1>Add Project</h1>
+    <h1>Update Project</h1>
     <v-form lazy-validation v-model="valid" ref="form">
       <v-row>
         <v-col>
@@ -9,7 +9,7 @@
         </v-col>
         <v-col>
           <v-text-field
-            v-model="name"
+            v-model="project.name"
             :counter="60"
             label="Name"
             :rules="this.validator.validateTextField('Name', 60)"
@@ -17,7 +17,7 @@
           ></v-text-field>
 
           <v-select
-            v-model="status"
+            v-model="project.status"
             item-text="status"
             :items="statuses"
             label="Status"
@@ -26,7 +26,7 @@
           ></v-select>
 
           <v-select
-            v-model="category"
+            v-model="project.category"
             item-text="category"
             :items="categories"
             label="Category"
@@ -34,7 +34,7 @@
             class="required"
           ></v-select>
 
-          <v-textarea v-model="description" color="teal">
+          <v-textarea v-model="project.description" color="teal">
             <template v-slot:label>
               <div>
                 Description
@@ -43,7 +43,7 @@
             </template>
           </v-textarea>
 
-          <v-textarea v-model="direction" color="teal">
+          <v-textarea v-model="project.direction" color="teal">
             <template v-slot:label>
               <div>
                 Direction
@@ -54,7 +54,7 @@
         </v-col>
       </v-row>
       <v-container align="center">
-        <v-btn color="success" class="mr-4" @click="saveNewProject">Save</v-btn>
+        <v-btn color="success" class="mr-4" @click="updateProject">Update</v-btn>
         <v-btn color="error" class="mr-4" @click="cancel">Cancel</v-btn>
       </v-container>
     </v-form>
@@ -66,9 +66,11 @@ import Service from "@/utils/apiService"
 import Validator from "@/utils/validator"
 
 export default {
-  name: "AddProject",
+  name: "UpdateProject",
   data() {
     return {
+      id: this.$route.params.id,
+      project: {},
       name: "",
       description: "",
       direction: "",
@@ -81,6 +83,7 @@ export default {
     }
   },
   beforeMount() {
+    this.getProject().then(data => this.project = data)
     this.getProjectCategories().then(data => this.categories = data)
     this.getProjectStatuses().then(data => this.statuses = data)
   },
@@ -94,20 +97,16 @@ export default {
     validate(){
       return this.$refs.form.validate()
     },
-    saveNewProject(){
+    async getProject(){ return await Service.get(`projects/${this.id}`); },
+    updateProject(){
       if(this.validate()){
-        let project = {
-          name: this.name,
-          description: this.description,
-          direction: this.direction,
-          status: this.status,
-          category: this.category,
-        }
-        return Service.post(`projects/`, project);
+        delete this.project.collaborators;
+        delete this.project.beneficiaries;
+        return Service.patch(`projects/${this.id}/`, this.project);
       }
     },
     cancel(){
-      this.$router.go(-1)
+      this.$router.go(-1) 
     }
   }
 }
