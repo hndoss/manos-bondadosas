@@ -64,14 +64,6 @@ export default {
   name: "AddCollaborator",
   data() {
     return {
-      collaborator: {
-        id: "",
-        first_name: "",
-        last_name: "",
-        age: null,
-        sex: "",
-        email: "",
-      },
       id: "", 
       first_name: "",
       last_name: "",

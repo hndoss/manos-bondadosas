@@ -1,6 +1,7 @@
 import ListCollaborators from "@/pages/collaborators/listCollaborators"
 import ShowCollaborator from "@/pages/collaborators/showCollaborator"
 import AddCollaborator from "@/pages/collaborators/addCollaborator"
+import UpdateCollaborator from "@/pages/collaborators/updateCollaborator"
 
 export default [
   {
@@ -29,8 +30,8 @@ export default [
   },
   {
     name: 'UpdateCollaborator',
-    path: '/update-collaborator',
-    component: AddCollaborator,
+    path: '/update-collaborator/:id',
+    component: UpdateCollaborator,
     meta: {
       requiresAuth: true
     }

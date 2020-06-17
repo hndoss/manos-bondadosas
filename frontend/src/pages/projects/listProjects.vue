@@ -4,8 +4,9 @@
       title="Projects"
       :headers="headers"
       :entities="projects"
-      @click="viewProjectDetails"
-      @addNewEntity="addProject"
+      @showEntity="changeRoute('ShowProject', { id: $event.id })"
+      @addNewEntity="changeRoute('AddProject')"
+      @updateEntity="changeRoute('UpdateProject', { id: $event.id })"
     />
   </div>
 </template>
@@ -29,29 +30,27 @@ export default {
         },
         { text: "Name", value: "name" },
         { text: "Description", value: "description" },
+        { text: "Actions", value: "actions", sortable: false },
       ],
-      projects: [],
+      projects: []
     }
   },
   beforeMount() {
     this.getProjects()
-      .then(data => this.projects = data)
+      .then(data => {
+        this.projects = data})
   },
   methods: {
+    changeRoute(route, args) {
+      this.$router.push(
+        {
+          name: route,
+          params: args
+        }
+      )
+    },
     getProjects(){
       return Service.get("projects");
-    },
-    viewProjectDetails(project){
-      this.$router.push(
-        { 
-          name: "ShowProject", 
-          params: { id: project.id } 
-        }
-    )},
-    addProject(){
-      this.$router.push({
-        name: "AddProject"
-      })
     }
   }
 }

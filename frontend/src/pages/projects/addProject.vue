@@ -1,6 +1,6 @@
 <template>
   <div class="ml-sm-4 ml-md-4 ml-lg-4 mr-sm-4 mr-md-4 mr-lg-4">
-    <h1>Add New Project</h1>
+    <h1>Add Project</h1>
     <v-form lazy-validation v-model="valid" ref="form">
       <v-row>
         <v-col>
@@ -12,7 +12,7 @@
             v-model="name"
             :counter="60"
             label="Name"
-            :rules='this.validator.validateTextField("Name", 60)'
+            :rules="this.validator.validateTextField('Name', 60)"
             class="required"
           ></v-text-field>
 
@@ -21,7 +21,7 @@
             item-text="status"
             :items="statuses"
             label="Status"
-            :rules='this.validator.validateSelect("Status")'
+            :rules="this.validator.validateSelect('Status')"
             class="required"
           ></v-select>
 
@@ -30,7 +30,7 @@
             item-text="category"
             :items="categories"
             label="Category"
-            :rules='this.validator.validateSelect("Category")'
+            :rules="this.validator.validateSelect('Category')"
             class="required"
           ></v-select>
 
@@ -81,10 +81,8 @@ export default {
     }
   },
   beforeMount() {
-    this.getProjectCategories()
-      .then(data => this.categories = data)
-    this.getProjectStatuses()
-      .then(data => this.statuses = data)
+    this.getProjectCategories().then(data => this.categories = data)
+    this.getProjectStatuses().then(data => this.statuses = data)
   },
   methods: {
     getProjectCategories(){
