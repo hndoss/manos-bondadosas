@@ -15,17 +15,21 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.conf.urls import url, include
+from django.conf.urls.i18n import i18n_patterns
 from rest_framework_swagger.views import get_swagger_view
 
+admin.autodiscover()
 schema_view = get_swagger_view(title='API')
 
-
 urlpatterns = [
-    url('admin/', admin.site.urls),
     url('doc/', schema_view),
     url('api/v1/people/', include('people.urls')),
     url('api/v1/projects/', include('projects.urls'))
 ]
+
+urlpatterns += i18n_patterns(
+    url('admin/', admin.site.urls)
+)
 
 admin.site.site_header = "Manos Bondadosas"
 admin.site.site_title = "Manos Bondadosas Admin"
