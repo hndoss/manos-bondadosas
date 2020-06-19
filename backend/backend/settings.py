@@ -143,7 +143,7 @@ LANGUAGES = [
     ('es', _('Spanish')),
     ('en', _('English')),
     ('fr', _('French')),
-    ('pt-BR', _('Portuguese')),
+    ('de', _('German')),
 ]
 TIME_ZONE = 'UTC'
 USE_I18N = True
