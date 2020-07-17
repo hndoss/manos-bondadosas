@@ -11,7 +11,7 @@ class Project(models.Model):
     collaborators = models.ManyToManyField(
         'people.Collaborator', related_name='projects', blank=True)
     beneficiaries = models.ManyToManyField(
-        'people.Beneficiary', through='ProjectBeneficiary', related_name='projects', blank=True)
+        'people.Beneficiary', related_name='projects', blank=True)
     status = models.ForeignKey(
         Status, on_delete=models.CASCADE, related_name="projects")
     category = models.ForeignKey(
@@ -19,9 +19,3 @@ class Project(models.Model):
 
     def __str__(self):
         return self.name
-
-
-class ProjectBeneficiary(models.Model):
-    project_id = models.ForeignKey(Project, on_delete=models.CASCADE)
-    beneficiary_id = models.ForeignKey(
-        'people.Beneficiary', on_delete=models.CASCADE)
