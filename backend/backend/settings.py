@@ -109,8 +109,12 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'HOST': 'manos-bondadosas.cr1rf0hzij8w.us-east-1.rds.amazonaws.com',
+        'PORT': 3306,
+        'NAME': 'crm',
+        'USER': 'admin',
+        'PASSWORD': 'DtVPSzRaF1IDVNnpcJwq',
     }
 }
 
